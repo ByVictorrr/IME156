@@ -56,6 +56,7 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="99" name="SpiceOrder" color="5" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -105,6 +106,172 @@ DIN A4, landscape with location and doc. field</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="lab1">
+<packages>
+<package name="POWER-FOOT">
+<pad name="1" x="0" y="8.89" drill="0.6" diameter="4" shape="square"/>
+<pad name="2" x="0" y="-8.89" drill="0.6" diameter="4" shape="square"/>
+<text x="-4" y="-2" size="1.778" layer="25" rot="R90">&gt;NAME</text>
+<wire x1="5" y1="-8" x2="5" y2="-10" width="0.1524" layer="21"/>
+<wire x1="4" y1="-9" x2="6" y2="-9" width="0.1524" layer="21"/>
+<wire x1="4" y1="9" x2="6" y2="9" width="0.1524" layer="21"/>
+</package>
+<package name="SWITCH-FOOT">
+<pad name="1" x="-2.25" y="3.25" drill="1.0414" diameter="1.7272"/>
+<pad name="4" x="2.25" y="3.25" drill="1.0414" diameter="1.7272"/>
+<pad name="2" x="-2.25" y="-3.25" drill="1.0414" diameter="1.7272"/>
+<pad name="3" x="2.25" y="-3.25" drill="1.0414" diameter="1.7272"/>
+<text x="-3.81" y="5.08" size="1.778" layer="25">&gt;NAME</text>
+</package>
+<package name="LED-FOOT">
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.127" layer="21" curve="270"/>
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
+<pad name="C" x="0" y="1.27" drill="0.8" diameter="1.7" shape="square"/>
+<pad name="A" x="0" y="-1.27" drill="0.8" diameter="1.7" rot="R180"/>
+<text x="-5" y="3" size="1.778" layer="25">&gt;NAME</text>
+</package>
+<package name="RES-FOOT">
+<pad name="1" x="-6.25" y="0" drill="0.8" diameter="1.7" rot="R180"/>
+<pad name="2" x="6.25" y="0" drill="0.8" diameter="1.7"/>
+<wire x1="4" y1="-1" x2="-4" y2="-1" width="0.127" layer="21"/>
+<wire x1="-4" y1="-1" x2="-4" y2="1" width="0.127" layer="21"/>
+<wire x1="-4" y1="1" x2="4" y2="1" width="0.127" layer="21"/>
+<wire x1="4" y1="1" x2="4" y2="-1" width="0.127" layer="21"/>
+<text x="-3" y="2" size="1.27" layer="25">&gt;NAME</text>
+</package>
+</packages>
+<symbols>
+<symbol name="POWER-SYMB">
+<pin name="2" x="9" y="-2" visible="off" length="middle" rot="R180"/>
+<pin name="1" x="9" y="2" visible="off" length="middle" rot="R180"/>
+<wire x1="0" y1="-3" x2="4" y2="-3" width="0.1524" layer="94"/>
+<wire x1="4" y1="-3" x2="4" y2="3" width="0.1524" layer="94"/>
+<wire x1="4" y1="3" x2="-4" y2="3" width="0.1524" layer="94"/>
+<wire x1="-4" y1="3" x2="-4" y2="-3" width="0.1524" layer="94"/>
+<wire x1="-4" y1="-3" x2="0" y2="-3" width="0.1524" layer="94"/>
+<text x="-4" y="4" size="1.778" layer="95">&gt;NAME</text>
+<wire x1="7" y1="4" x2="9" y2="4" width="0.1524" layer="94"/>
+<wire x1="8" y1="-3" x2="8" y2="-5" width="0.1524" layer="94"/>
+<wire x1="7" y1="-4" x2="9" y2="-4" width="0.1524" layer="94"/>
+</symbol>
+<symbol name="S">
+<wire x1="0" y1="-3.175" x2="0" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.905" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
+<wire x1="0" y1="1.905" x2="0" y2="3.175" width="0.254" layer="94"/>
+<text x="-2.54" y="-3.81" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="3.81" y="-3.81" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="1" x="0" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="3" x="0" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
+</symbol>
+<symbol name="LED">
+<wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-2.032" y1="-0.762" x2="-3.429" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="-1.905" x2="-3.302" y2="-3.302" width="0.1524" layer="94"/>
+<text x="3.556" y="-4.572" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="5.715" y="-4.572" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="C" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="A" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.429" y="-2.159"/>
+<vertex x="-3.048" y="-1.27"/>
+<vertex x="-2.54" y="-1.778"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.302" y="-3.302"/>
+<vertex x="-2.921" y="-2.413"/>
+<vertex x="-2.413" y="-2.921"/>
+</polygon>
+</symbol>
+<symbol name="R-US">
+<description>a basic resistor</description>
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.2032" layer="94"/>
+<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="POWER" prefix="J" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="POWER-SYMB" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="POWER-FOOT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH" prefix="S" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="S" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SWITCH-FOOT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LED" prefix="D" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="LED" x="-2.54" y="12.7"/>
+</gates>
+<devices>
+<device name="" package="LED-FOOT">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RES" prefix="R" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="R-US" x="0" y="7.62"/>
+</gates>
+<devices>
+<device name="" package="RES-FOOT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -116,13 +283,30 @@ DIN A4, landscape with location and doc. field</description>
 </classes>
 <parts>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
+<part name="J1" library="lab1" deviceset="POWER" device=""/>
+<part name="S1" library="lab1" deviceset="SWITCH" device=""/>
+<part name="D1" library="lab1" deviceset="LED" device=""/>
+<part name="R1" library="lab1" deviceset="RES" device=""/>
+<part name="R2" library="lab1" deviceset="RES" device=""/>
+<part name="R3" library="lab1" deviceset="RES" device=""/>
+<part name="R4" library="lab1" deviceset="RES" device=""/>
+<part name="D2" library="lab1" deviceset="LED" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<text x="251.46" y="17.78" size="1.778" layer="94">Victor Delaplaine</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="33.02" y="-2.54"/>
+<instance part="J1" gate="G$1" x="83.82" y="132.08"/>
+<instance part="S1" gate="G$1" x="121.92" y="132.08" rot="R90"/>
+<instance part="D1" gate="G$1" x="149.86" y="119.38"/>
+<instance part="R1" gate="G$1" x="149.86" y="99.06" rot="R90"/>
+<instance part="R2" gate="G$1" x="180.34" y="99.06" rot="R90"/>
+<instance part="R3" gate="G$1" x="208.28" y="99.06" rot="R90"/>
+<instance part="R4" gate="G$1" x="223.52" y="114.3" rot="R180"/>
+<instance part="D2" gate="G$1" x="241.3" y="99.06"/>
 </instances>
 <busses>
 </busses>

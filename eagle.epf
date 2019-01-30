@@ -348,12 +348,16 @@ UsedLibraryUrn="urn:adsk.eagle:library:174"
 UsedLibraryUrn="urn:adsk.eagle:library:175"
 UsedLibraryUrn="urn:adsk.eagle:library:176"
 UsedLibraryUrn="urn:adsk.eagle:library:177"
-UsedLibrary="C:/Users/156student/Documents/EAGLE/libraries/lab1.lbr"
+UsedLibrary="libraries/lab1.lbr"
 
 [Win_1]
+Type="Control Panel"
+Number=0
+
+[Win_2]
 Type="Library Editor"
 Number=1
-File="C:/Users/156student/Documents/EAGLE/libraries/lab1.lbr"
+File="libraries/lab1.lbr"
 View="-0.508 -0.508 25.908 25.908"
 WireWidths=" 0.0762 0.1016 0.127 0.15 0.2 0.2032 0.254 0.3048 0.4064 0.508 0.6096 0.8128 1.016 1.27 2.54 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
@@ -393,10 +397,6 @@ ArcDirection=0
 AddLevel=2
 PadsSameType=0
 Layer=16
-
-[Win_2]
-Type="Control Panel"
-Number=0
 
 [Desktop]
 Screen="1280 1024"

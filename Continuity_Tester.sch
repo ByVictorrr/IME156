@@ -155,6 +155,18 @@ DIN A4, landscape with location and doc. field</description>
 <pad name="1" x="0" y="0" drill="1.0414" diameter="6"/>
 <text x="-3.81" y="3.81" size="1.778" layer="25">&gt;NAME</text>
 </package>
+<package name="DIODE-FOOT">
+<pad name="A" x="-6.25" y="0" drill="0.8" diameter="1.7"/>
+<pad name="C" x="6.25" y="0" drill="0.8" diameter="1.7" shape="square"/>
+<wire x1="4" y1="-1" x2="2" y2="-1" width="0.127" layer="21"/>
+<wire x1="2" y1="-1" x2="-4" y2="-1" width="0.127" layer="21"/>
+<wire x1="-4" y1="-1" x2="-4" y2="1" width="0.127" layer="21"/>
+<wire x1="-4" y1="1" x2="2" y2="1" width="0.127" layer="21"/>
+<wire x1="2" y1="1" x2="4" y2="1" width="0.127" layer="21"/>
+<wire x1="4" y1="1" x2="4" y2="-1" width="0.127" layer="21"/>
+<text x="-3" y="2" size="1.27" layer="25">&gt;NAME</text>
+<wire x1="2" y1="1" x2="2" y2="-1" width="0.1524" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="POWER-SYMB">
@@ -250,6 +262,16 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="-3" y1="-1" x2="-3" y2="1" width="0.1524" layer="94"/>
 <pin name="1" x="9" y="0" visible="off" length="middle" rot="R180"/>
 <text x="-3" y="2" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="DIODE">
+<wire x1="-1.27" y1="-1.905" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.905" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.397" y1="1.905" x2="1.397" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.3114" y="2.6416" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.5654" y="-4.4958" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -367,6 +389,22 @@ DIN A4, landscape with location and doc. field</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="DIODE" prefix="D" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="DIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DIODE-FOOT">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -382,7 +420,6 @@ DIN A4, landscape with location and doc. field</description>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="J1" library="lab1" deviceset="POWER" device=""/>
 <part name="S1" library="lab1" deviceset="SWITCH" device=""/>
-<part name="D1" library="lab1" deviceset="LED" device=""/>
 <part name="R1" library="lab1" deviceset="RES" device="" value="2k"/>
 <part name="R2" library="lab1" deviceset="RES" device="" value="10k"/>
 <part name="R3" library="lab1" deviceset="RES" device="" value="100"/>
@@ -395,6 +432,7 @@ DIN A4, landscape with location and doc. field</description>
 <part name="J2" library="lab1" deviceset="ALLIGATORCLIP" device=""/>
 <part name="J3" library="lab1" deviceset="ALLIGATORCLIP" device=""/>
 <part name="SUPPLY3" library="lab1" deviceset="GND" device=""/>
+<part name="D1" library="lab1" deviceset="DIODE" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -405,7 +443,6 @@ DIN A4, landscape with location and doc. field</description>
 <instance part="FRAME1" gate="G$1" x="33.02" y="-2.54"/>
 <instance part="J1" gate="G$1" x="83.82" y="132.08"/>
 <instance part="S1" gate="G$1" x="114.3" y="127" rot="R270"/>
-<instance part="D1" gate="G$1" x="149.86" y="119.38"/>
 <instance part="R1" gate="G$1" x="149.86" y="99.06" rot="R90"/>
 <instance part="R2" gate="G$1" x="170.18" y="99.06" rot="R90"/>
 <instance part="R3" gate="G$1" x="170.18" y="50.8" rot="R90"/>
@@ -418,6 +455,7 @@ DIN A4, landscape with location and doc. field</description>
 <instance part="J2" gate="G$1" x="132.08" y="86.36"/>
 <instance part="J3" gate="G$1" x="149.86" y="43.18"/>
 <instance part="SUPPLY3" gate="PE" x="170.18" y="20.32"/>
+<instance part="D1" gate="G$1" x="149.86" y="119.38" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -456,16 +494,15 @@ DIN A4, landscape with location and doc. field</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="S1" gate="G$1" pin="3"/>
-<pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="119.38" y1="127" x2="149.86" y2="127" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="127" x2="149.86" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="D1" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="D1" gate="G$1" pin="C"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="149.86" y1="114.3" x2="149.86" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="116.84" x2="149.86" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="109.22" x2="149.86" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="109.22" x2="170.18" y2="109.22" width="0.1524" layer="91"/>
 <junction x="149.86" y="109.22"/>
@@ -479,6 +516,7 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="219.82" y1="63.96" x2="219.82" y2="105.52" width="0.1524" layer="91"/>
 <wire x1="219.82" y1="105.52" x2="213.36" y2="109.22" width="0.1524" layer="91"/>
 <junction x="213.36" y="109.22"/>
+<pinref part="D1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$4" class="0">
