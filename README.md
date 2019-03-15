@@ -1,1 +1,1 @@
-# IME156 - Eagle PCB: Continuity Tester
+# IME156 - Basic Electronics Manufacturing.
